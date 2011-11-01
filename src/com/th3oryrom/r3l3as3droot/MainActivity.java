@@ -1,4 +1,4 @@
-package net.gimite.nativeexe;
+package com.th3oryrom.r3l3as3droot;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import net.gimite.nativeexe.R;
+import com.th3oryrom.r3l3as3droot.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -51,12 +51,12 @@ public class MainActivity extends Activity {
 	private OnClickListener onRemoteRunButtonClick = new OnClickListener() {
 		public void onClick(View v) {
 			final String url = urlEdit.getText().toString();
-			final String localPath = "/data/data/net.gimite.nativeexe/a.out";
+			final String localPath = "/data/data/com.th3oryrom.r3l3as3droot/a.out";
 			output("Downloading...");
 			Thread thread = new Thread(new Runnable() {
 				public void run() {
 					download(url, localPath);
-					exec("/system/bin/chmod 744 " + localPath);
+					exec("/system/bin/chmod 755 " + localPath);
 					output("Executing...");
 					String output = exec(localPath);
 					output(output);
